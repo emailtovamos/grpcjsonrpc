@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "proto/";
+
+service Calculator {
+  rpc Add(AddRequest) returns (AddResponse) {}
+}
+
+message AddRequest {
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message AddResponse {
+  int32 result = 1;
+}
+
+//protoc --go_out=. --go-grpc_out=. calculator.proto
